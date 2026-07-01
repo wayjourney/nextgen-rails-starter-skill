@@ -1,0 +1,3 @@
+display_name: Nextgen Rails Starter
+short_description: Scaffold a Rails 8 starter with Vite, Tailwind 4, Hotwire, PostgreSQL, and Kamal deployment.
+default_prompt: Use $nextgen-rails-starter to scaffold or update a production-ready Rails starter with Vite Ruby, Tailwind CSS 4, and Kamal deployment.
