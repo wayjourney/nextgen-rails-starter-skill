@@ -274,6 +274,13 @@ env:
 
 `erb_lint` on Ruby 4.0 may print a `parser/ruby33` compatibility warning — that is upstream noise, not a failure.
 
+## After Migrations
+
+```bash
+bundle exec rails db:migrate
+bundle update brakeman
+```
+
 ## Tests
 
 - RSpec with `spec/rails_helper.rb`, Factory Bot, Shoulda Matchers.

@@ -48,6 +48,12 @@ Read only what the task needs:
 - After adding `amazing_print`, configure the developer machine's `~/.pryrc` (create if missing) with `require "amazing_print"` and `AmazingPrint.pry!` at the end. This is per-machine, not committed to the app repo.
 - ERB files must end with a trailing newline (`erb_lint` `FinalNewline` rule).
 - CI `scan_ruby` and `lint` jobs are top-level siblings of `test`, not nested under `erb_lint`.
+- After adding migrations:
+
+```bash
+bundle exec rails db:migrate
+bundle update brakeman
+```
 - Run validation after edits: `bin/rubocop`, `bin/erb_lint --lint-all`, `yarn run lint:js`, `bin/rspec`, and `yarn vite build` when frontend files changed.
 
 ## Default Decisions
@@ -61,5 +67,6 @@ Preserve these unless the user asks to change them:
 | Vendor gems | `/vendor` gitignored; history purged if accidentally committed |
 | Tailwind | `@source "../../views/**/*.{erb,html}"` from `app/frontend/stylesheets/index.css` |
 | Pry output | `amazing_print` in Gemfile; `AmazingPrint.pry!` in `~/.pryrc` |
+| After migrations | `bundle exec rails db:migrate` then `bundle update brakeman` |
 | CI | Runs on all branch pushes; security/lint jobs before test |
 | Git author | Rewritten with `git rebase --root --exec 'git commit --amend --reset-author --no-edit'` when needed |
