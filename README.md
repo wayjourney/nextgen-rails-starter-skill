@@ -29,5 +29,6 @@ Reference the skill in chat: `@nextgen-rails-starter` (Cursor) or `$nextgen-rail
 ```
 ├── SKILL.md              # Main skill instructions
 ├── agents/openai.yaml    # Codex agent metadata
-└── references/           # Detailed guides (baseline, kamal, tailwind)
+└── references/           # baseline, kamal, tailwind, no-co-authored-by.mdc
 ```
+

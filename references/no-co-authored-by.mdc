@@ -1,0 +1,39 @@
+---
+description: Commit messages must not include Co-authored-by trailers
+alwaysApply: true
+---
+
+# No Co-authored-by in commits
+
+When creating or amending git commits, **never** add `Co-authored-by` lines to the commit message.
+
+## Rules
+
+- Commit message body = subject + optional plain description only.
+- Do **not** append trailers such as `Co-authored-by: ...` (including `Co-authored-by: Cursor <cursoragent@cursor.com>`).
+- If a hook or tool would inject them, strip them before committing.
+- When rewriting history at the user's request, remove existing `Co-authored-by` lines from affected commits.
+
+
+## Cursor Attribution (machine setting)
+
+Cursor may still auto-inject `Co-authored-by: Cursor <cursoragent@cursor.com>` via Agent Attribution. This rule cannot stop that. Disable:
+
+- CLI: `~/.cursor/cli-config.json` → `attribution.attributeCommitsToAgent` / `attributePRsToAgent` = `false`
+- IDE: Cursor Settings → Agents → Attribution → off for Commit and PR Attribution
+
+## Example
+
+```text
+Add user model and migration
+
+Introduce users table with email and password_digest.
+```
+
+Not:
+
+```text
+Add user model and migration
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+```
